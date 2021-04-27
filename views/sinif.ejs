@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>6-A SINIFI</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  </head>
+  <body >
+
+<div class="container mt-5 bg-light">
+
+  <div class="row">
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem"  src="resimler/logo.jpg" alt="">
+
+    </div>
+
+    <div class="col-6  d-flex justify-content-center">
+
+      <div class="">
+        <h4 >CUMHURIYET ILKOKULU</h4>
+        <br><br>
+
+        <div class="d-flex justify-content-center"">
+          <h4>6-A SINIFI</h4>
+
+        </div>
+
+      </div>
+
+    </div>
+
+<div class="col-3">
+  <div class=" d-flex justify-content-center align-items-center">
+
+    <img class="rounded mt-2" style="width:7rem " src="/resimler/ogretmen2.jpg" alt="">
+
+  </div>
+
+  <div class="d-flex justify-content-center mt-2">
+    <h6>Hüseyin Kökler</h6>
+
+
+  </div>
+  <div class="d-flex justify-content-center">
+    <p>Sinif Ögretmeni</p>
+  </div>
+</div>
+
+
+
+  </div>
+
+  <hr>
+
+  <div class="d-flex flex-wrap mb-5 justify-content-center">
+
+
+
+
+  <% for(var i = 0 ; i < ogrenciler.length ; i++ ){    %>
+
+    <div class="card  mr-3" style="width: 12rem;">
+
+
+
+      <div class="d-flex justify-content-center">
+      <img  style="height:10rem" src="<%=ogrenciler[i].resimlinki%>" class="card-img-top" alt="...">
+      </div>
+
+  <div class="card-body">
+    <h5 class="card-title"><%=ogrenciler[i].adsoyad%></h5>
+  </div>
+
+  <div class="d-flex justify-content-between card-body">
+
+    <form class="form-signin" enctype="multipart/form-data" action="/ogrencinotsayfasi" method="post">
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-light ml-3 " type="submit">Not Girisi<input class="d-none" type="text" name="adsoyad" value="<%=ogrenciler[i].adsoyad%>"></button>
+
+      </div>
+
+    </form>
+
+    <div class="">
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+
+
+  </form>
+
+
+</div>
+
+
+  <% } %>
+
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ogrenci Portali</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  </head>
+  <body >
+
+<div class="container mt-5 bg-light">
+
+  <div class="row">
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem"  src="resimler/logo.jpg" alt="">
+
+    </div>
+
+    <div class="col-6  d-flex justify-content-center">
+
+      <div class="">
+        <h4 >CUMHURIYET ILKOKULU ÖGRENCI SAYFASI</h4>
+        <br><br>
+
+        <div class="d-flex justify-content-center"">
+          <h4 ><%=ogrenci[0].adsoyad.toUpperCase()%></h4>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-3 d-flex justify-content-center align-items-center">
+
+      <img style="width:7rem" src="<%=ogrenci[0].resimlinki%>" alt="">
+
+    </div>
+
+  </div>
+
+  <hr>
+
+  <div class="row ">
+
+
+
+    <div class="col-6 ">
+
+<div class="d-flex justify-content-center ">
+  <h5 class="mb-3">Ögrenci Bilgileri</h5>
+
+</div>
+
+
+
+<h6>TC Kimlik Numarasi:<%=ogrenci[0].tcno%></h6>
+<hr>
+<h6>Adi ve Soyadi     :<%=ogrenci[0].adsoyad%></h6>
+<hr>
+<h6>Ögrenci Numarasi  :<%=ogrenci[0].ogrencino%></h6>
+<hr>
+<h6>Adresi            :<%=ogrenci[0].adres%></h6>
+<hr>
+
+<div class="">
+
+<form enctype="multipart/form-data" action="/mesajgonder" class="form-signin" method="post">
+
+
+  <input class="d-none" type="text" name="mesajogrenci" value="<%=ogrenci[0].id%>">
+
+
+  <label for="cars">Ögretmen:</label>
+
+
+
+
+
+<select name="secilenOgretmen">
+
+  <% for(var i = 0 ; i < ogretmenler.length ; i++) { %>
+  <option value="<%=ogretmenler[i].id%>"><%=ogretmenler[i].adsoyad%></option>
+
+  <% } %>
+</select>
+  <input class="btn btn-danger" type="submit" value="Mesaj Gönder" >
+
+
+<a href="/"><button  type="button" class="btn btn-danger ml-5">Sistemden Cikis</button></a>
+
+<textarea class="mt-2" name="mesaj" rows="8" cols="80" placeholder="Buraya mesajinizi yaziniz"></textarea>
+</div>
+
+</form>
+
+    </div>
+
+    <div class="col-6">
+
+<div class="d-flex justify-content-center">
+  <h5>Ders Notlari</h5>
+</div>
+
+<div class="pl-5 mb-5">
+
+  <table class="table">
+  <thead class="Dersler">
+
+    <th>Dersler</th>
+    <th>Yazili1</th>
+    <th>Yazili2</th>
+    <th>Sözlü</th>
+    <th>Ort</th>
+
+
+
+  </thead>
+  <tbody>
+
+
+
+    <tr>
+    <th><h6>Türkce:</h6></th>
+    <td><%=notlar.turkce1%></td>
+    <td><%=notlar.turkce2%></td>
+    <td><%=notlar.turkcesozlu%></td>
+    <td><%=turkceort%></td>
+    </tr>
+    <tr>
+    <th><h6>Matematik:</h6></th>
+    <td><%=notlar.matematik1%></td>
+    <td><%=notlar.matematik2%></td>
+    <td><%=notlar.matematiksozlu%></td>
+    <td><%=matematikort%></td>
+    </tr>
+    <tr>
+    <th><h6>Fen Bilimleri:</h6></th>
+    <td><%=notlar.fen1%></td>
+    <td><%=notlar.fen2%></td>
+    <td><%=notlar.fensozlu%></td>
+    <td><%=fenort%></td>
+    </tr>
+    <tr>
+    <th><h6>Sosyal Bilgiler:</h6></th>
+    <td><%=notlar.sosyal1%></td>
+    <td><%=notlar.sosyal2%></td>
+    <td><%=notlar.sosyalsozlu%></td>
+    <td><%=sosyalort%></td>
+    </tr>
+    <tr>
+    <th><h6>Yabanci Dil:</h6></th>
+    <td><%=notlar.yabancidil1%></td>
+    <td><%=notlar.yabancidil2%></td>
+    <td><%=notlar.yabancidilsozlu%></td>
+    <td><%=yabancidilort%></td>
+    </tr>
+    <tr>
+    <th><h6>Din Kültürü ve Ahlak Bilgisi:</h6></th>
+    <td><%=notlar.dinkulturu1%></td>
+    <td><%=notlar.dinkulturu2%></td>
+    <td><%=notlar.dinkulturusozlu%></td>
+    <td><%=dinkulturuort%></td>
+    </tr>
+    <tr>
+    <th><h6>Görsel Sanatlar:</h6></th>
+    <td><%=notlar.gorselsanatlar1%></td>
+    <td><%=notlar.gorselsanatlar2%></td>
+    <td><%=notlar.gorselsanatlarsozlu%></td>
+    <td><%=gorselsanatlarort%></td>
+    </tr>
+    <tr>
+    <th><h6>Müzik:</h6></th>
+    <td><%=notlar.muzik1%></td>
+    <td><%=notlar.muzik2%></td>
+    <td><%=notlar.muzik1sozlu%></td>
+    <td><%=muzikort%></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+  <hr>
+
+
+</div>
+
+
+
+
+
+
+    </div>
+
+
+  </div>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+  </body>
+</html>
